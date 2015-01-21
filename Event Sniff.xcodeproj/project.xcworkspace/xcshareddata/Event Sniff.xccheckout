@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F1427231-35D8-4100-824D-476B556433C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Event Sniff</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>36C28C22605491F76D29C9EEAAAB522893D76D61</key>
+		<string>https://github.com/promjai/Event-Sniff-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Event Sniff.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>36C28C22605491F76D29C9EEAAAB522893D76D61</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/promjai/Event-Sniff-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>36C28C22605491F76D29C9EEAAAB522893D76D61</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>36C28C22605491F76D29C9EEAAAB522893D76D61</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Event-Sniff-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

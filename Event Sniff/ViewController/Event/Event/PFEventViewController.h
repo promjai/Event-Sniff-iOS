@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PFApi.h"
+
 #import "PFEventCell.h"
 
 #import "PFNowViewController.h"
@@ -15,6 +17,11 @@
 #import "PFCategoryViewController.h"
 
 @interface PFEventViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
+@property (strong, nonatomic) NSMutableArray *arrObj;
+@property (strong, nonatomic) NSDictionary *obj;
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 

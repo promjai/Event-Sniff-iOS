@@ -61,7 +61,7 @@
     navSniff.navigationBar.tintColor = [UIColor whiteColor];
     
     [sniff.tabBarItem setTitle:@"Sniff"];
-    [sniff.tabBarItem setImage:[UIImage imageNamed:@"ic_notification"]];
+    [sniff.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
     
     /* Profile */
     
@@ -72,11 +72,11 @@
     navProfile.navigationBar.tintColor = [UIColor whiteColor];
     
     [profile.tabBarItem setTitle:@"Profile"];
-    [profile.tabBarItem setImage:[UIImage imageNamed:@"ic_notification"]];
+    [profile.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
     
     /* tabbar controller */
     
-    [tbc.tabBar setTintColor:[UIColor blackColor]];
+    [tbc.tabBar setTintColor:[UIColor blueColor]];
     [tbc setViewControllers:[NSArray arrayWithObjects:navFeed ,navSniff ,navProfile ,nil]];
     
     self.window.backgroundColor = [UIColor whiteColor];

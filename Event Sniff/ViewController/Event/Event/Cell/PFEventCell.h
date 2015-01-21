@@ -10,4 +10,6 @@
 
 @interface PFEventCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *categoryName;
+
 @end

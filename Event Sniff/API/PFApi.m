@@ -78,4 +78,17 @@
     [self.userDefaults removeObjectForKey:@"user_id"];
 }
 
+#pragma mark - Event
+- (void)getCategory {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@sniff/category",API_URL];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getCategoryResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getCategoryErrorResponse:[error localizedDescription]];
+    }];
+
+}
+
 @end

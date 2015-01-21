@@ -15,6 +15,10 @@
 - (void)PFApi:(id)sender loginWithFacebookTokenResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender loginWithFacebookTokenErrorResponse:(NSString *)errorResponse;
 
+#pragma mark - Event
+- (void)PFApi:(id)sender getCategoryResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getCategoryErrorResponse:(NSString *)errorResponse;
+
 @end
 
 @interface PFApi : NSObject
@@ -40,5 +44,8 @@
 
 #pragma mark - Log out
 - (void)logOut;
+
+#pragma mark - Event
+- (void)getCategory;
 
 @end

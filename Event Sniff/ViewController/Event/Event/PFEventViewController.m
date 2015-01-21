@@ -14,7 +14,9 @@
 
 @implementation PFEventViewController
 
-#pragma mark -
+BOOL loadEvent;
+BOOL noDataEvent;
+BOOL refreshDataEvent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +39,17 @@
     
     UIView *fv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = fv;
+    
+    loadEvent = NO;
+    noDataEvent = NO;
+    refreshDataEvent = NO;
+    
+    self.arrObj = [[NSMutableArray alloc] init];
+    
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    [self.Api getCategory];
     
 }
 
@@ -81,9 +94,33 @@
     
 }
 
+- (void)PFApi:(id)sender getCategoryResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    self.obj = response;
+    
+    if (!refreshDataEvent) {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[response objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
+        }
+    } else {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[response objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (void)PFApi:(id)sender getCategoryErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [self.arrObj count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,6 +136,7 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.categoryName.text = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"name"];
     
     return cell;
 }
