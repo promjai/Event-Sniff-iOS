@@ -51,6 +51,7 @@
     
     [event.tabBarItem setTitle:@"Event"];
     [event.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
+    //[event.tabBarItem setBadgeValue:@"4"];
     
     /* Sniff */
     

@@ -10,8 +10,11 @@
                 <outlet property="headerScrollView" destination="bFi-aA-oVC" id="Uv9-dD-Fzr"/>
                 <outlet property="headerView" destination="ZTz-8s-e9X" id="328-f1-zeH"/>
                 <outlet property="moreLabel" destination="M8n-Dv-9M1" id="Dn8-gA-U9z"/>
+                <outlet property="searchBar" destination="FOq-AK-fn3" id="MeN-fg-RVC"/>
                 <outlet property="showAllLabel" destination="x6Y-F8-zgO" id="hQO-ix-Vlu"/>
                 <outlet property="tableView" destination="QJg-HD-I4D" id="BWr-PN-DjL"/>
+                <outlet property="upcomingImage1" destination="yR9-3w-yZW" id="LNM-Ox-A2f"/>
+                <outlet property="upcomingImage2" destination="wcc-0Z-sps" id="J06-pq-8Nv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,11 +38,11 @@
             <point key="canvasLocation" x="258" y="-250"/>
         </view>
         <view contentMode="scaleToFill" id="ZTz-8s-e9X">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="575"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="619"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbt-Ac-MY3">
-                    <rect key="frame" x="10" y="10" width="300" height="155"/>
+                    <rect key="frame" x="10" y="54" width="300" height="155"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fv-kn-WtP">
                             <rect key="frame" x="10" y="10" width="100" height="21"/>
@@ -66,14 +69,14 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFi-aA-oVC">
-                    <rect key="frame" x="0.0" y="45" width="320" height="110"/>
+                    <rect key="frame" x="0.0" y="89" width="320" height="110"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="d74-B8-rCM"/>
                     </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ad-Yv-Jq7">
-                    <rect key="frame" x="10" y="175" width="300" height="355"/>
+                    <rect key="frame" x="10" y="219" width="300" height="355"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoE-3c-g9L">
                             <rect key="frame" x="10" y="10" width="100" height="21"/>
@@ -96,19 +99,19 @@
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O5i-Rc-BaA">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR9-3w-yZW">
                             <rect key="frame" x="10" y="35" width="280" height="150"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-8o-qW4">
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-0Z-sps">
                             <rect key="frame" x="10" y="195" width="280" height="150"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlc-rC-6i1">
-                    <rect key="frame" x="10" y="540" width="300" height="35"/>
+                    <rect key="frame" x="10" y="584" width="300" height="35"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQD-sQ-Q6N">
                             <rect key="frame" x="10" y="10" width="100" height="21"/>
@@ -123,7 +126,7 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="642" y="-692"/>
+            <point key="canvasLocation" x="642" y="-714.5"/>
         </view>
         <view contentMode="scaleToFill" id="Mu6-Lt-D5B">
             <rect key="frame" x="0.0" y="0.0" width="660" height="110"/>
@@ -145,7 +148,17 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="820" y="-245"/>
+            <point key="canvasLocation" x="807.5" y="-245"/>
         </view>
+        <searchBar contentMode="redraw" placeholder="Search" id="FOq-AK-fn3">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+            <scopeButtonTitles>
+                <string>Title</string>
+                <string>Title</string>
+            </scopeButtonTitles>
+            <point key="canvasLocation" x="642" y="-1194"/>
+        </searchBar>
     </objects>
 </document>

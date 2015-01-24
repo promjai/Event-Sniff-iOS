@@ -79,11 +79,25 @@
 }
 
 #pragma mark - Event
-- (void)getCategory {
-
-    self.urlStr = [[NSString alloc] initWithFormat:@"%@sniff/category",API_URL];
+- (void)getNow {
+    
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@event/today_event",API_URL];
     
     [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getNowResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getNowErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
+- (void)getCategory {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@event/category_lists",API_URL];
+    
+    NSDictionary *parameter = @{@"lang":@"en"};
+    
+    [self.manager GET:self.urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.delegate PFApi:self getCategoryResponse:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.delegate PFApi:self getCategoryErrorResponse:[error localizedDescription]];

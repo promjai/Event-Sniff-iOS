@@ -11,5 +11,6 @@
 @interface PFEventCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *categoryName;
+@property (strong, nonatomic) IBOutlet UIImageView *categoryImage;
 
 @end

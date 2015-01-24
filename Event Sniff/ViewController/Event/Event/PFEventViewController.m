@@ -33,7 +33,10 @@ BOOL refreshDataEvent;
     /* Library code */
     self.shyNavBarManager.scrollView = self.tableView;
     
+    [self.headerView addSubview:self.searchBar];
+    
     self.tableView.tableHeaderView = self.headerView;
+    
     self.headerScrollView.contentSize = CGSizeMake(self.headerDetailView.frame.size.width,self.headerDetailView.frame.size.height);
     [self.headerScrollView addSubview:self.headerDetailView];
     
@@ -137,6 +140,18 @@ BOOL refreshDataEvent;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.categoryName.text = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"name"];
+    
+    NSURL *url = [NSURL URLWithString:@"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRfbpej6Z09zP5-0RkD2zwDAYFa0uE5bEI-u9WkPhg9GHaxeZnuUA"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    
+    cell.categoryImage.layer.masksToBounds = YES;
+    cell.categoryImage.contentMode = UIViewContentModeScaleAspectFill;
+    cell.categoryImage.image = image;
+    
+    //image circle
+    cell.categoryImage.layer.cornerRadius = cell.categoryImage.frame.size.width / 2;
+    cell.categoryImage.clipsToBounds = YES;
     
     return cell;
 }
