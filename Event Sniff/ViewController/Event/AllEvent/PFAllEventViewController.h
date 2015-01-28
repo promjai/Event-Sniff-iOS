@@ -1,8 +1,8 @@
 //
-//  PFNowViewController.h
+//  PFAllEventViewController.h
 //  Event Sniff
 //
-//  Created by Pariwat Promjai on 1/20/2558 BE.
+//  Created by Pariwat Promjai on 1/28/2558 BE.
 //  Copyright (c) 2558 Pariwat Promjai. All rights reserved.
 //
 
@@ -10,10 +10,9 @@
 
 #import "PFNowCell.h"
 
-#import "PFAllEventViewController.h"
 #import "PFEventDetailViewController.h"
 
-@interface PFNowViewController : UIViewController <UITableViewDelegate>
+@interface PFAllEventViewController : UIViewController <UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

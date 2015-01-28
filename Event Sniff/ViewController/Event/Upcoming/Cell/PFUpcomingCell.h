@@ -1,5 +1,5 @@
 //
-//  PFEventCell.h
+//  PFUpcomingCell.h
 //  Event Sniff
 //
 //  Created by Pariwat Promjai on 1/13/2558 BE.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFEventCell : UITableViewCell
+@interface PFUpcomingCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *categoryName;
-@property (strong, nonatomic) IBOutlet UIImageView *categoryImage;
+@property (strong, nonatomic) IBOutlet UIImageView *upcomingImage;
 
 @property (strong, nonatomic) IBOutlet UIView *gradientView;
 

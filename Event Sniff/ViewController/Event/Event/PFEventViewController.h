@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImageView+WebCache.h"
+#import "DLImageLoader.h"
 
 #import "PFApi.h"
 
@@ -15,9 +16,10 @@
 
 #import "PFNowViewController.h"
 #import "PFUpcomingViewController.h"
-#import "PFCategoryViewController.h"
 
-@interface PFEventViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface PFEventViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource> {
+    IBOutlet UIScrollView	*_scrollView;
+}
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
@@ -34,7 +36,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *showAllLabel;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *headerScrollView;
-@property (strong, nonatomic) IBOutlet UIView *headerDetailView;
 
 //upcoming
 @property (strong, nonatomic) IBOutlet UILabel *moreLabel;

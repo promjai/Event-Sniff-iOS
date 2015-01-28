@@ -37,8 +37,59 @@ BOOL refreshDataEvent;
     
     self.tableView.tableHeaderView = self.headerView;
     
-    self.headerScrollView.contentSize = CGSizeMake(self.headerDetailView.frame.size.width,self.headerDetailView.frame.size.height);
-    [self.headerScrollView addSubview:self.headerDetailView];
+    //
+    _scrollView.clipsToBounds = NO;
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    
+    CGFloat contentOffset = 0.0f;
+    NSArray *imageFilenames = [NSArray arrayWithObjects:@"mborsten.jpg",
+                               @"arepty.jpg",
+                               @"bmf.jpg",
+                               @"mgprot.jpg",
+                               @"sgaw.jpg",
+                               @"tarasis.jpg",
+                               @"uliwitness.jpg",
+                               @"cgodefroy.jpg",
+                               nil];
+    
+    for (NSString *singleImageFilename in imageFilenames) {
+        CGRect viewFrame = CGRectMake(contentOffset, 0.0f, _scrollView.frame.size.width, _scrollView.frame.size.height);
+        
+        UIView *todayView = [[UIView alloc] initWithFrame:viewFrame];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 0.0f, 230.0f, 150.0f)];
+        imageView.image = [UIImage imageNamed:singleImageFilename];
+        imageView.layer.masksToBounds = YES;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        UILabel *todayName = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 120.0f, 100.0f, 21.0f)];
+        todayName.text = @"Promotion";
+        todayName.textColor = [UIColor whiteColor];
+        
+        UILabel *todayDate = [[UILabel alloc] initWithFrame:CGRectMake(130.0f, 120.0f, 100.0f, 21.0f)];
+        todayDate.text = @"27/1/2015";
+        todayDate.textColor = [UIColor whiteColor];
+        todayDate.textAlignment = NSTextAlignmentRight;
+        
+        UIView *gradientView = [[UIView alloc] initWithFrame:CGRectMake(5.0f, 0.0f, 230.0f, 150.0f)];
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = gradientView.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+        [gradientView.layer insertSublayer:gradient atIndex:0];
+        gradientView.alpha = 0.5;
+        
+        [todayView addSubview:imageView];
+        [todayView addSubview:gradientView];
+        [todayView addSubview:todayName];
+        //[todayView addSubview:todayDate];
+        [_scrollView addSubview:todayView];
+        
+        contentOffset += todayView.frame.size.width;
+        _scrollView.contentSize = CGSizeMake(contentOffset, _scrollView.frame.size.height);
+    }
+    
+    //
     
     UIView *fv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     self.tableView.tableFooterView = fv;
@@ -139,34 +190,37 @@ BOOL refreshDataEvent;
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.categoryName.text = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"name"];
-    
-    NSURL *url = [NSURL URLWithString:@"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRfbpej6Z09zP5-0RkD2zwDAYFa0uE5bEI-u9WkPhg9GHaxeZnuUA"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
     
     cell.categoryImage.layer.masksToBounds = YES;
     cell.categoryImage.contentMode = UIViewContentModeScaleAspectFill;
-    cell.categoryImage.image = image;
+    
+    NSString *urlimg = [[NSString alloc] initWithFormat:@"%@",[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"thumb"] objectForKey:@"url"]];
+    
+    [DLImageLoader loadImageFromURL:urlimg
+                          completed:^(NSError *error, NSData *imgData) {
+                              cell.categoryImage.image = [UIImage imageWithData:imgData];
+                          }];
+    
+    cell.categoryName.text = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"name"];
     
     //image circle
-    cell.categoryImage.layer.cornerRadius = cell.categoryImage.frame.size.width / 2;
-    cell.categoryImage.clipsToBounds = YES;
+    //cell.categoryImage.layer.cornerRadius = cell.categoryImage.frame.size.width / 2;
+    //cell.categoryImage.clipsToBounds = YES;
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PFCategoryViewController *categoryView = [[PFCategoryViewController alloc] init];
+    PFUpcomingViewController *upcomingView = [[PFUpcomingViewController alloc] init];
     if(IS_WIDESCREEN) {
-        categoryView = [[PFCategoryViewController alloc] initWithNibName:@"PFCategoryViewController_Wide" bundle:nil];
+        upcomingView = [[PFUpcomingViewController alloc] initWithNibName:@"PFUpcomingViewController_Wide" bundle:nil];
     } else {
-        categoryView = [[PFCategoryViewController alloc] initWithNibName:@"PFCategoryViewController" bundle:nil];
+        upcomingView = [[PFUpcomingViewController alloc] initWithNibName:@"PFUpcomingViewController" bundle:nil];
     }
-    categoryView.delegate = self;
-    categoryView.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:categoryView animated:YES];
+    upcomingView.delegate = self;
+    upcomingView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:upcomingView animated:YES];
     
 }
 

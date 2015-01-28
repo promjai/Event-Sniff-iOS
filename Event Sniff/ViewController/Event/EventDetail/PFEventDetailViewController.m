@@ -1,28 +1,32 @@
 //
-//  PFCategoryViewController.m
+//  PFEventDetailViewController.m
 //  Event Sniff
 //
-//  Created by Pariwat Promjai on 1/20/2558 BE.
+//  Created by Pariwat Promjai on 1/28/2558 BE.
 //  Copyright (c) 2558 Pariwat Promjai. All rights reserved.
 //
 
-#import "PFCategoryViewController.h"
+#import "PFEventDetailViewController.h"
 
-@interface PFCategoryViewController ()
+@interface PFEventDetailViewController ()
 
 @end
 
-@implementation PFCategoryViewController
+@implementation PFEventDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-
-    /* Library code */
-    self.shyNavBarManager.scrollView = self.scrollView;
     
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share"] style:UIBarButtonItemStyleDone target:self action:@selector(share)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    /* Library code */
+    self.shyNavBarManager.scrollView = self.tableView;
+    
+    self.tableView.tableHeaderView = self.headerView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,14 +34,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.scrollView.contentSize = self.view.bounds.size;
-}
-
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)share {
+    
 }
 
 @end

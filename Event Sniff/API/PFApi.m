@@ -93,11 +93,9 @@
 
 - (void)getCategory {
 
-    self.urlStr = [[NSString alloc] initWithFormat:@"%@event/category_lists",API_URL];
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@event/category_lists/%@",API_URL,@"en"];
     
-    NSDictionary *parameter = @{@"lang":@"en"};
-    
-    [self.manager GET:self.urlStr parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.delegate PFApi:self getCategoryResponse:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.delegate PFApi:self getCategoryErrorResponse:[error localizedDescription]];

@@ -1,14 +1,14 @@
 //
-//  PFEventCell.m
+//  PFUpcomingCell.m
 //  Event Sniff
 //
 //  Created by Pariwat Promjai on 1/13/2558 BE.
 //  Copyright (c) 2558 Pariwat Promjai. All rights reserved.
 //
 
-#import "PFEventCell.h"
+#import "PFUpcomingCell.h"
 
-@implementation PFEventCell
+@implementation PFUpcomingCell
 
 - (void)awakeFromNib {
     // Initialization code

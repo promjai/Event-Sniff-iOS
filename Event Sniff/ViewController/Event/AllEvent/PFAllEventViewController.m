@@ -1,30 +1,30 @@
 //
-//  PFNowViewController.m
+//  PFAllEventViewController.m
 //  Event Sniff
 //
-//  Created by Pariwat Promjai on 1/20/2558 BE.
+//  Created by Pariwat Promjai on 1/28/2558 BE.
 //  Copyright (c) 2558 Pariwat Promjai. All rights reserved.
 //
 
-#import "PFNowViewController.h"
+#import "PFAllEventViewController.h"
 
-@interface PFNowViewController ()
+@interface PFAllEventViewController ()
 
 @end
 
-@implementation PFNowViewController
+@implementation PFAllEventViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"Today";
+    self.navigationItem.title = @"All Event";
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"See all" style:UIBarButtonItemStylePlain target:self action:@selector(seeAll)];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Location" style:UIBarButtonItemStylePlain target:self action:@selector(location)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-
+    
     /* Library code */
     self.shyNavBarManager.scrollView = self.tableView;
     
@@ -39,17 +39,7 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)seeAll {
-    
-    PFAllEventViewController *alleventView = [[PFAllEventViewController alloc] init];
-    if(IS_WIDESCREEN) {
-        alleventView = [[PFAllEventViewController alloc] initWithNibName:@"PFAllEventViewController_Wide" bundle:nil];
-    } else {
-        alleventView = [[PFAllEventViewController alloc] initWithNibName:@"PFAllEventViewController" bundle:nil];
-    }
-    alleventView.delegate = self;
-    alleventView.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:alleventView animated:YES];
+- (void)location {
     
 }
 

@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+#import "DLImageLoader.h"
 
-@interface PFUpcomingViewController : UIViewController <UIScrollViewDelegate>
+#import "PFUpcomingCell.h"
+
+#import "PFAllEventViewController.h"
+#import "PFEventDetailViewController.h"
+
+@interface PFUpcomingViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (assign, nonatomic) id delegate;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIView *footerView;
+
+- (IBAction)moreTapped:(id)sender;
 
 @end
