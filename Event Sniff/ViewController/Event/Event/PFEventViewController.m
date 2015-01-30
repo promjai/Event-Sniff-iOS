@@ -37,6 +37,16 @@ BOOL refreshDataEvent;
     
     self.tableView.tableHeaderView = self.headerView;
     
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.upcomingGradientView1.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.upcomingGradientView1.layer insertSublayer:gradient atIndex:0];
+    
+    CAGradientLayer *gradient1 = [CAGradientLayer layer];
+    gradient1.frame = self.upcomingGradientView2.bounds;
+    gradient1.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.upcomingGradientView2.layer insertSublayer:gradient1 atIndex:0];
+    
     //
     _scrollView.clipsToBounds = NO;
     _scrollView.pagingEnabled = YES;
@@ -54,6 +64,7 @@ BOOL refreshDataEvent;
                                nil];
     
     for (NSString *singleImageFilename in imageFilenames) {
+        
         CGRect viewFrame = CGRectMake(contentOffset, 0.0f, _scrollView.frame.size.width, _scrollView.frame.size.height);
         
         UIView *todayView = [[UIView alloc] initWithFrame:viewFrame];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -11,6 +11,8 @@
                 <outlet property="moreLabel" destination="M8n-Dv-9M1" id="Dn8-gA-U9z"/>
                 <outlet property="showAllLabel" destination="x6Y-F8-zgO" id="hQO-ix-Vlu"/>
                 <outlet property="tableView" destination="QJg-HD-I4D" id="BWr-PN-DjL"/>
+                <outlet property="upcomingGradientView1" destination="pi8-Wn-AKb" id="DVW-dP-JoS"/>
+                <outlet property="upcomingGradientView2" destination="lzi-23-bTS" id="pFz-mh-2OS"/>
                 <outlet property="upcomingImage1" destination="yR9-3w-yZW" id="LNM-Ox-A2f"/>
                 <outlet property="upcomingImage2" destination="wcc-0Z-sps" id="J06-pq-8Nv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -108,10 +110,18 @@
                             <rect key="frame" x="10" y="35" width="280" height="150"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
+                        <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pi8-Wn-AKb">
+                            <rect key="frame" x="10" y="35" width="280" height="150"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-0Z-sps">
                             <rect key="frame" x="10" y="195" width="280" height="150"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
+                        <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzi-23-bTS">
+                            <rect key="frame" x="10" y="195" width="280" height="150"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>

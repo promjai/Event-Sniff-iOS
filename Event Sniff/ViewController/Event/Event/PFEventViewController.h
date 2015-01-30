@@ -43,6 +43,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *upcomingImage1;
 @property (strong, nonatomic) IBOutlet UIImageView *upcomingImage2;
 
+@property (strong, nonatomic) IBOutlet UIView *upcomingGradientView1;
+@property (strong, nonatomic) IBOutlet UIView *upcomingGradientView2;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)showAllTapped:(id)sender;

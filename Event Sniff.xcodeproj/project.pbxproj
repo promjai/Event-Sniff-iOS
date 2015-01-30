@@ -51,6 +51,8 @@
 		819C56C71A662C2000A380E4 /* PFEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819C56BF1A662C2000A380E4 /* PFEventViewController.m */; };
 		819C56C81A662C2000A380E4 /* PFEventViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819C56C01A662C2000A380E4 /* PFEventViewController_Wide.xib */; };
 		819C56CC1A6631A200A380E4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819C56CB1A6631A200A380E4 /* MapKit.framework */; };
+		819E5E961A79EFD700E61399 /* PFCommentEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 819E5E941A79EFD700E61399 /* PFCommentEventCell.m */; };
+		819E5E971A79EFD700E61399 /* PFCommentEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819E5E951A79EFD700E61399 /* PFCommentEventCell.xib */; };
 		81D3CACC1A67852B00C8ED47 /* CMMapLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D3CAC91A67852B00C8ED47 /* CMMapLauncher.m */; };
 		81D3CACD1A67852B00C8ED47 /* PFMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D3CACB1A67852B00C8ED47 /* PFMapView.m */; };
 		81DEC02D1A5CFC9000B5C1FB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DEC0001A5CFC9000B5C1FB /* AFHTTPRequestOperation.m */; };
@@ -176,6 +178,9 @@
 		819C56BF1A662C2000A380E4 /* PFEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFEventViewController.m; sourceTree = "<group>"; };
 		819C56C01A662C2000A380E4 /* PFEventViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFEventViewController_Wide.xib; sourceTree = "<group>"; };
 		819C56CB1A6631A200A380E4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		819E5E931A79EFD700E61399 /* PFCommentEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCommentEventCell.h; sourceTree = "<group>"; };
+		819E5E941A79EFD700E61399 /* PFCommentEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCommentEventCell.m; sourceTree = "<group>"; };
+		819E5E951A79EFD700E61399 /* PFCommentEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFCommentEventCell.xib; sourceTree = "<group>"; };
 		81D3CAC81A67852B00C8ED47 /* CMMapLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMapLauncher.h; sourceTree = "<group>"; };
 		81D3CAC91A67852B00C8ED47 /* CMMapLauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMapLauncher.m; sourceTree = "<group>"; };
 		81D3CACA1A67852B00C8ED47 /* PFMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMapView.h; sourceTree = "<group>"; };
@@ -430,6 +435,7 @@
 		814E37D11A78977200B98456 /* EventDetail */ = {
 			isa = PBXGroup;
 			children = (
+				819E5E921A79EFB600E61399 /* Comments */,
 				814E37D81A789D4A00B98456 /* PFEventDetailViewController.h */,
 				814E37D91A789D4A00B98456 /* PFEventDetailViewController.m */,
 				814E37DA1A789D4A00B98456 /* PFEventDetailViewController_Wide.xib */,
@@ -534,6 +540,16 @@
 				819C56BD1A662C2000A380E4 /* PFEventCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		819E5E921A79EFB600E61399 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				819E5E931A79EFD700E61399 /* PFCommentEventCell.h */,
+				819E5E941A79EFD700E61399 /* PFCommentEventCell.m */,
+				819E5E951A79EFD700E61399 /* PFCommentEventCell.xib */,
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		81D3CAC71A67852B00C8ED47 /* Map */ = {
@@ -839,6 +855,7 @@
 				81974CB41A7751FA00226635 /* bmf.jpg in Resources */,
 				814E37DF1A78A07100B98456 /* icon_share@2x.png in Resources */,
 				81974CB61A7751FA00226635 /* mborsten.jpg in Resources */,
+				819E5E971A79EFD700E61399 /* PFCommentEventCell.xib in Resources */,
 				8125BBD91A5BDCA5000A75F3 /* PFProfileViewController_Wide.xib in Resources */,
 				81FC23E71A6E392D00209048 /* PFNowViewController_Wide.xib in Resources */,
 				8125BBBE1A5BB0E6000A75F3 /* ic_notification@3x.png in Resources */,
@@ -911,6 +928,7 @@
 				814E37E41A78A0DD00B98456 /* PFAllEventViewController.m in Sources */,
 				81FC23F61A6E4DEB00209048 /* PFNowCell.m in Sources */,
 				819C56C71A662C2000A380E4 /* PFEventViewController.m in Sources */,
+				819E5E961A79EFD700E61399 /* PFCommentEventCell.m in Sources */,
 				81DEC0371A5CFC9000B5C1FB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				81E2CC621A71F7B900C43C99 /* NSData+ImageContentType.m in Sources */,
 				81D3CACD1A67852B00C8ED47 /* PFMapView.m in Sources */,
