@@ -18,19 +18,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"Profile";
+    /* NavigationBar */
+    [self setNavigationBar];
     
     /* Library code */
-    self.shyNavBarManager.scrollView = self.scrollView;
+    self.shyNavBarManager.scrollView = self.tableView;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add_event)];
+    /* API */
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
     
+    /*
     if ([self.Api checkLogin] == 0){
         
         self.loginView = [PFLoginViewController alloc];
         [self.view addSubview:self.loginView.view];
         
     }
+     */
+    
+    /* END */
     
 }
 
@@ -39,15 +46,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.scrollView.contentSize = self.scrollView.bounds.size;
-}
-
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
 }
+
+/* Set NavigationBar */
+
+- (void)setNavigationBar {
+    
+    self.navigationItem.title = @"Profile";
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add_event)];
+    
+}
+
+/* Add Event Onclick */
 
 - (void)add_event {
 
@@ -59,5 +71,18 @@
     [alert show];
     
 }
+
+/* Table */
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 0;
+}
+
+/* END */
 
 @end

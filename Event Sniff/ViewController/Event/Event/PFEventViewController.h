@@ -14,8 +14,17 @@
 
 #import "PFEventCell.h"
 
+#import "PFIntroViewController.h"
+#import "PFSettingViewController.h"
 #import "PFNowViewController.h"
 #import "PFUpcomingViewController.h"
+#import "PFEventDetailViewController.h"
+
+@protocol PFEventViewControllerDelegate <NSObject>
+
+- (void)tabbar;
+
+@end
 
 @interface PFEventViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource> {
     IBOutlet UIScrollView	*_scrollView;
@@ -23,8 +32,16 @@
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
-@property (strong, nonatomic) NSMutableArray *arrObj;
-@property (strong, nonatomic) NSDictionary *obj;
+@property (strong, nonatomic) NSMutableArray *arrObjNow;
+@property (strong, nonatomic) NSDictionary *objNow;
+
+@property (strong, nonatomic) PFIntroViewController *introView;
+
+@property (strong, nonatomic) NSMutableArray *arrObjUpcoming;
+@property (strong, nonatomic) NSDictionary *objUpcoming;
+
+@property (strong, nonatomic) NSMutableArray *arrObjCategory;
+@property (strong, nonatomic) NSDictionary *objCategory;
 
 //header
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -47,6 +64,9 @@
 @property (strong, nonatomic) IBOutlet UIView *upcomingGradientView2;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+//pull to refresh
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 - (IBAction)showAllTapped:(id)sender;
 - (IBAction)moreTapped:(id)sender;

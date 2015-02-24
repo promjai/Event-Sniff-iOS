@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PFApi.h"
+
 #import "PFNowCell.h"
 
 #import "PFAllEventViewController.h"
@@ -16,6 +18,10 @@
 @interface PFNowViewController : UIViewController <UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
+@property (strong, nonatomic) NSMutableArray *arrObj;
+@property (strong, nonatomic) NSDictionary *obj;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -8,10 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "PFEventViewController.h"
-#import "PFSniffViewController.h"
-#import "PFProfileViewController.h"
-
 @interface AppDelegate ()
 
 @end
@@ -21,71 +17,115 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    if (IS_OS_8_OR_LATER) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    
+    [self tabbar];
+    
+    return YES;
+}
+
+- (void)tabbar {
+    
+    NSLog(@"tabbar reset");
+    
+    /* API */
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    [self.Api saveReset:@"NO"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    self.event = [[PFEventViewController alloc] init];
+    self.sniff = [[PFSniffViewController alloc] init];
+    self.profile = [[PFProfileViewController alloc] init];
+    
+    self.event.delegate = self;
+    self.sniff.delegate = self;
+    self.profile.delegate = self;
+
     UITabBarController *tbc = [[UITabBarController alloc] init];
     tbc.delegate = self;
     
-    PFEventViewController *event = [[PFEventViewController alloc] init];
-    PFSniffViewController *sniff = [[PFSniffViewController alloc] init];
-    PFProfileViewController *profile = [[PFProfileViewController alloc] init];
-    
     if(IS_WIDESCREEN) {
-        event = [[PFEventViewController alloc] initWithNibName:@"PFEventViewController_Wide" bundle:nil];
-        sniff = [[PFSniffViewController alloc] initWithNibName:@"PFSniffViewController_Wide" bundle:nil];
-        profile = [[PFProfileViewController alloc] initWithNibName:@"PFProfileViewController_Wide" bundle:nil];
+        self.event = [[PFEventViewController alloc] initWithNibName:@"PFEventViewController_Wide" bundle:nil];
+        self.sniff = [[PFSniffViewController alloc] initWithNibName:@"PFSniffViewController_Wide" bundle:nil];
+        self.profile = [[PFProfileViewController alloc] initWithNibName:@"PFProfileViewController_Wide" bundle:nil];
     } else {
-        event = [[PFEventViewController alloc] initWithNibName:@"PFEventViewController" bundle:nil];
-        sniff = [[PFSniffViewController alloc] initWithNibName:@"PFSniffViewController" bundle:nil];
-        profile = [[PFProfileViewController alloc] initWithNibName:@"PFProfileViewController" bundle:nil];
+        self.event = [[PFEventViewController alloc] initWithNibName:@"PFEventViewController" bundle:nil];
+        self.sniff = [[PFSniffViewController alloc] initWithNibName:@"PFSniffViewController" bundle:nil];
+        self.profile = [[PFProfileViewController alloc] initWithNibName:@"PFProfileViewController" bundle:nil];
     }
     
-    /* Feed */
+    /* Event */
     
-    UINavigationController *navFeed = [[UINavigationController alloc] initWithRootViewController:event];
-    [[navFeed navigationBar] setBarTintColor:[UIColor colorWithRed:65.0f/255.0f green:95.0f/255.0f blue:154.0f/255.0f alpha:1.0f]];
-    [[navFeed navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
+    UINavigationController *navFeed = [[UINavigationController alloc] initWithRootViewController:self.event];
+    [[navFeed navigationBar] setBarTintColor:[UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]];
+    [[navFeed navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:73.0f/255.0f blue:129.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
     
-    navFeed.navigationBar.tintColor = [UIColor whiteColor];
+    navFeed.navigationBar.tintColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
     
-    [event.tabBarItem setTitle:@"Event"];
-    [event.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
-    //[event.tabBarItem setBadgeValue:@"4"];
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        [self.event.tabBarItem setTitle:@"Event"];
+    } else {
+        [self.event.tabBarItem setTitle:@"กิจกรรม"];
+    }
+    
+    [self.event.tabBarItem setImage:[UIImage imageNamed:@"ic_tab_event_off"]];
+    [self.event.tabBarItem setSelectedImage:[UIImage imageNamed:@"ic_tab_event_on"]];
     
     /* Sniff */
     
-    UINavigationController *navSniff = [[UINavigationController alloc] initWithRootViewController:sniff];
-    [[navSniff navigationBar] setBarTintColor:[UIColor colorWithRed:65.0f/255.0f green:95.0f/255.0f blue:154.0f/255.0f alpha:1.0f]];
-    [[navSniff navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
+    UINavigationController *navSniff = [[UINavigationController alloc] initWithRootViewController:self.sniff];
+    [[navSniff navigationBar] setBarTintColor:[UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]];
+    [[navSniff navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:73.0f/255.0f blue:129.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
     
-    navSniff.navigationBar.tintColor = [UIColor whiteColor];
+    navSniff.navigationBar.tintColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
     
-    [sniff.tabBarItem setTitle:@"Sniff"];
-    [sniff.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        [self.sniff.tabBarItem setTitle:@"Sniff"];
+    } else {
+        [self.sniff.tabBarItem setTitle:@"โดยรอบ"];
+    }
+    
+    [self.sniff.tabBarItem setImage:[UIImage imageNamed:@"ic_tab_sniff_off"]];
+    [self.sniff.tabBarItem setSelectedImage:[UIImage imageNamed:@"ic_tab_sniff_on"]];
     
     /* Profile */
     
-    UINavigationController *navProfile = [[UINavigationController alloc] initWithRootViewController:profile];
-    [[navProfile navigationBar] setBarTintColor:[UIColor colorWithRed:65.0f/255.0f green:95.0f/255.0f blue:154.0f/255.0f alpha:1.0f]];
-    [[navProfile navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
+    UINavigationController *navProfile = [[UINavigationController alloc] initWithRootViewController:self.profile];
+    [[navProfile navigationBar] setBarTintColor:[UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]];
+    [[navProfile navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:255.0f/255.0f green:73.0f/255.0f blue:129.0f/255.0f alpha:1.0f], NSForegroundColorAttributeName, nil]];
     
-    navProfile.navigationBar.tintColor = [UIColor whiteColor];
+    navProfile.navigationBar.tintColor = [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f];
     
-    [profile.tabBarItem setTitle:@"Profile"];
-    [profile.tabBarItem setImage:[UIImage imageNamed:@"ic_setting"]];
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        [self.profile.tabBarItem setTitle:@"Profile"];
+    } else {
+        [self.profile.tabBarItem setTitle:@"โปรไฟล์"];
+    }
+    
+    [self.profile.tabBarItem setImage:[UIImage imageNamed:@"ic_tab_profile_off"]];
+    [self.profile.tabBarItem setSelectedImage:[UIImage imageNamed:@"ic_tab_profile_on"]];
     
     /* tabbar controller */
     
-    [tbc.tabBar setTintColor:[UIColor blueColor]];
+    [tbc.tabBar setTintColor:[UIColor colorWithRed:255.0f/255.0f green:73.0f/255.0f blue:129.0f/255.0f alpha:1.0f]];
     [tbc setViewControllers:[NSArray arrayWithObjects:navFeed ,navSniff ,navProfile ,nil]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     [self.window setRootViewController:tbc];
-    
-    return YES;
+
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController  {
@@ -118,6 +158,50 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:   (UIUserNotificationSettings *)notificationSettings
+{
+    //register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString *dt = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    dt = [dt stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"My token is : %@", dt);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:dt forKey:@"deviceToken"];
+    [defaults synchronize];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return (UIInterfaceOrientationMaskAll);
+}
+
+/* reset */
+
+// In order to process the response you get from interacting with the Facebook login process,
+// you need to override application:openURL:sourceApplication:annotation:
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 @end

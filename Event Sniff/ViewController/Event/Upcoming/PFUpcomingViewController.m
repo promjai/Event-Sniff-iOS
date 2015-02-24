@@ -14,6 +14,20 @@
 
 @implementation PFUpcomingViewController
 
+BOOL loadUpcoming;
+BOOL noDataUpcoming;
+BOOL refreshDataUpcoming;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f]];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -23,10 +37,16 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"See all" style:UIBarButtonItemStylePlain target:self action:@selector(seeAll)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     
-    /* Library code */
-    self.shyNavBarManager.scrollView = self.tableView;
+    loadUpcoming = NO;
+    noDataUpcoming = NO;
+    refreshDataUpcoming = NO;
     
-    self.tableView.tableFooterView = self.footerView;
+    self.arrObj = [[NSMutableArray alloc] init];
+    
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    [self.Api getCategoryList:self.category_id];
     
 }
 
@@ -67,9 +87,36 @@
 
 }
 
+- (void)PFApi:(id)sender getCategoryListResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    self.obj= response;
+    
+    if (!refreshDataUpcoming) {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[response objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
+        }
+    } else {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[response objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
+        }
+    }
+    
+    [self.tableView reloadData];
+    self.tableView.tableFooterView = self.footerView;
+    
+}
+
+- (void)PFApi:(id)sender getCategoryListErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.arrObj count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,12 +136,12 @@
     cell.upcomingImage.layer.masksToBounds = YES;
     cell.upcomingImage.contentMode = UIViewContentModeScaleAspectFill;
     
-//    NSString *urlimg = [[NSString alloc] initWithFormat:@"%@",[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"thumb"] objectForKey:@"url"]];
-//    
-//    [DLImageLoader loadImageFromURL:urlimg
-//                          completed:^(NSError *error, NSData *imgData) {
-//                              cell.upcomingImage.image = [UIImage imageWithData:imgData];
-//                          }];
+    NSString *urlimg = [[NSString alloc] initWithFormat:@"%@",[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"thumb"] objectForKey:@"url"]];
+    
+    [DLImageLoader loadImageFromURL:urlimg
+                          completed:^(NSError *error, NSData *imgData) {
+                              cell.upcomingImage.image = [UIImage imageWithData:imgData];
+                          }];
     
     return cell;
 }
@@ -108,6 +155,7 @@
         eventdetailView = [[PFEventDetailViewController alloc] initWithNibName:@"PFEventDetailViewController" bundle:nil];
     }
     eventdetailView.delegate = self;
+    eventdetailView.event_id = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"id"];
     eventdetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:eventdetailView animated:YES];
     

@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="footerView" destination="eH9-Od-x2B" id="Vu9-aj-HlP"/>
                 <outlet property="headerView" destination="sUJ-8k-dlq" id="zVy-J3-qWD"/>
+                <outlet property="imgscrollview" destination="F3P-EK-RPn" id="bpo-mc-WPH"/>
                 <outlet property="sniffImage1" destination="cLT-0C-zTL" id="ffV-46-vZ1"/>
                 <outlet property="sniffImage2" destination="ccO-3j-U8R" id="DGq-wQ-hoJ"/>
                 <outlet property="sniffImage3" destination="SJ0-YU-fhi" id="Mie-Rx-lgR"/>
@@ -24,14 +25,14 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-BZ-lAi">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Yu4-DE-F52"/>
                         <outlet property="delegate" destination="-1" id="Kbs-G9-dlv"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <view contentMode="scaleToFill" id="sUJ-8k-dlq">
@@ -65,7 +66,7 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jol-74-gmv">
                             <rect key="frame" x="10" y="60" width="300" height="63"/>
-                            <mutableString key="text">Using special metal forged in high temperature and pressure environment superalloy materials and parts, which can effectively improve the graphics performance, lower power supply module temperature to ensure quiet and smooth operation of the system, provides users with a perfect power solution. Choke eliminates solid core graphics at full load conditions occur beep and keep the graphics card cooler, while the capacitor can ensure the life of 50,000 hours - more than 2.5 times as long as conventional capacitor life.</mutableString>
+                            <string key="text">Using special metal forged in high temperature and pressure environment superalloy materials and parts, which can effectively improve the graphics performance, lower power supply module temperature to ensure quiet and smooth operation of the system, provides users with a perfect power solution. Choke eliminates solid core graphics at full load conditions occur beep and keep the graphics card cooler, while the capacitor can ensure the life of 50,000 hours - more than 2.5 times as long as conventional capacitor life.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -154,7 +155,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="743" y="465.5"/>
@@ -176,7 +177,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="743" y="859"/>

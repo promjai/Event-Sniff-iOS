@@ -10,15 +10,10 @@
 
 #import "PFApi.h"
 
-#import "PFLoginViewController.h"
-
 @interface PFProfileViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) PFLoginViewController *loginView;
 
 @end

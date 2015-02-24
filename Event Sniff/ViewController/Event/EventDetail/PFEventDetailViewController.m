@@ -14,6 +14,16 @@
 
 @implementation PFEventDetailViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f]];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -22,9 +32,6 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share"] style:UIBarButtonItemStyleDone target:self action:@selector(share)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    /* Library code */
-    self.shyNavBarManager.scrollView = self.tableView;
     
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
@@ -53,6 +60,13 @@
     self.sniffImage5.contentMode = UIViewContentModeScaleAspectFill;
     self.sniffImage5.layer.cornerRadius = self.sniffImage5.frame.size.width / 2;
     self.sniffImage5.clipsToBounds = YES;
+    
+    self.arrObj = [[NSMutableArray alloc] init];
+    
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    [self.Api getEvent:self.event_id];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +80,58 @@
 
 - (void)share {
     
+}
+
+- (void)PFApi:(id)sender getEventResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    self.obj = response;
+    
+    self.ArrImgs = [[NSMutableArray alloc] init];
+    self.arrcontactimg = [[NSMutableArray alloc] init];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [self.imgscrollview addGestureRecognizer:singleTap];
+    
+    self.current = @"0";
+    
+    for (int i=0; i<[[self.obj objectForKey:@"pictures"] count]; ++i) {
+        [self.arrcontactimg addObject:[[[self.obj objectForKey:@"pictures"] objectAtIndex:i] objectForKey:@"url"]];
+    }
+    
+    self.pageScrollView = [[PagedImageScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
+    self.pageScrollView.delegate = self;
+    [self.pageScrollView setScrollViewContents:[self imageToArray:self.obj]];
+    self.pageScrollView.pageControlPos = PageControlPositionCenterBottom;
+    [self.imgscrollview addSubview:self.pageScrollView];
+    
+}
+
+- (void)PFApi:(id)sender getEventErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+    
+}
+
+- (void)PagedImageScrollView:(id)sender current:(NSString *)current{
+    self.current = current;
+}
+
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
+{
+    int sum;
+    sum = [self.current intValue]/32;
+    NSString *num = [NSString stringWithFormat:@"%d",sum];
+    //[self.delegate PFGalleryViewController:self sum:self.arrcontactimg current:num];
+    
+}
+
+- (NSArray *)imageToArray:(NSDictionary *)images {
+    int countPicture = [[images objectForKey:@"pictures"] count];
+    for (int i = 0; i < countPicture; i++) {
+        NSString *urlStr = [[NSString alloc] initWithFormat:@"%@",[[[images objectForKey:@"pictures"] objectAtIndex:i] objectForKey:@"url"]];
+        
+        [self.ArrImgs addObject:urlStr];
+    }
+    return self.ArrImgs;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

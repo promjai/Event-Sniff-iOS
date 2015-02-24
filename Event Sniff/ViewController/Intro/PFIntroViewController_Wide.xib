@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFIntroViewController">
+            <connections>
+                <outlet property="bgemailTextFieldView" destination="Xnz-kt-zlp" id="GX6-M8-v3f"/>
+                <outlet property="bgpasswordTextFieldView" destination="aWu-JB-a5O" id="eM7-B2-RBv"/>
+                <outlet property="emailTextField" destination="aMz-dC-INs" id="r3r-Pm-yIc"/>
+                <outlet property="firstDetailLabel" destination="VXZ-Hv-8QZ" id="UTb-uM-oia"/>
+                <outlet property="fourthDetailLabel" destination="5lg-DU-zdd" id="KEG-ao-F8w"/>
+                <outlet property="introDetailView" destination="bXI-gR-Ih3" id="DxY-DS-NgE"/>
+                <outlet property="introScrollView" destination="IvJ-Vc-r7j" id="A9l-iH-CPb"/>
+                <outlet property="logInButton" destination="iye-QT-mSI" id="vwL-x4-W6J"/>
+                <outlet property="loginIntroButton" destination="Ez8-M9-lfT" id="dGO-K5-qd4"/>
+                <outlet property="loginView" destination="3U5-YZ-DlY" id="Ore-6U-WWi"/>
+                <outlet property="loginwithemailButton" destination="7PV-kk-beN" id="KN7-aP-ltc"/>
+                <outlet property="loginwithfacebookButton" destination="pDB-sC-W9s" id="mrM-iZ-peB"/>
+                <outlet property="nextButton" destination="hL0-zF-haW" id="q6R-IM-7Kd"/>
+                <outlet property="pageControl" destination="cXh-oS-S8l" id="Jkv-7M-CIy"/>
+                <outlet property="passwordTextField" destination="FdM-kJ-XNW" id="u9E-dz-BHK"/>
+                <outlet property="pleaseloginLabel" destination="vb4-p1-p8W" id="Umw-di-bXs"/>
+                <outlet property="secondDetailLabel" destination="Lfc-OE-OPg" id="Los-V8-7IM"/>
+                <outlet property="signUpButton" destination="Lga-Ws-Sle" id="KsE-aZ-oVM"/>
+                <outlet property="skipButton" destination="7hX-Gr-Idm" id="gGY-A0-4G8"/>
+                <outlet property="thirdDetailLabel" destination="2T7-dw-JyP" id="yhc-o6-LGw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvJ-Vc-r7j">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL0-zF-haW">
+                    <rect key="frame" x="230" y="30" width="70" height="30"/>
+                    <state key="normal" title="Next" backgroundImage="bt_done.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextTapped:" destination="-1" eventType="touchUpInside" id="Ghi-v6-kar"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="cXh-oS-S8l">
+                    <rect key="frame" x="110" y="470" width="100" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.8862745098" green="0.35294117650000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez8-M9-lfT">
+                    <rect key="frame" x="20" y="503" width="280" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Log In" backgroundImage="bt_login.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="ZTa-uo-D1Z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="336" y="332"/>
+        </view>
+        <view contentMode="scaleToFill" id="bXI-gR-Ih3">
+            <rect key="frame" x="0.0" y="0.0" width="1280" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzX-ri-Zny">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="470"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sniff Out Great Events around you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXZ-Hv-8QZ">
+                            <rect key="frame" x="10" y="400" width="300" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_01_03.png" translatesAutoresizingMaskIntoConstraints="NO" id="t7P-Ki-FxM">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_01_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ywo-JX-bMq">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_01_02.png" translatesAutoresizingMaskIntoConstraints="NO" id="zUp-3e-bHo">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.88627450980392153" green="0.35294117647058826" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBO-0R-68m">
+                    <rect key="frame" x="320" y="0.0" width="320" height="470"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Easy Sniff &amp; Share." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfc-OE-OPg">
+                            <rect key="frame" x="10" y="400" width="300" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_02_04.png" translatesAutoresizingMaskIntoConstraints="NO" id="n0c-gw-dpm">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_02_03.png" translatesAutoresizingMaskIntoConstraints="NO" id="dOX-4c-9dp">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_02_02.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mb0-EX-LqO">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_02_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="b3k-GD-GSj">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.50980392156862742" green="0.41176470588235292" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-P4-aMD">
+                    <rect key="frame" x="640" y="0.0" width="320" height="470"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Missed no more." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T7-dw-JyP">
+                            <rect key="frame" x="10" y="400" width="300" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_03_03.png" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-cI-FqH">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_03_02.png" translatesAutoresizingMaskIntoConstraints="NO" id="mAH-6k-ZVx">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_03_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ogB-ao-AL0">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.35294117647058826" green="0.7803921568627451" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbt-Nj-kgH">
+                    <rect key="frame" x="960" y="0.0" width="320" height="470"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep you best Moment." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-DU-zdd">
+                            <rect key="frame" x="10" y="400" width="300" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_04_02.png" translatesAutoresizingMaskIntoConstraints="NO" id="9vp-8Y-1qY">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_04_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-M1-n9C">
+                            <rect key="frame" x="0.0" y="80" width="320" height="284"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.42745098039215684" green="0.88627450980392153" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="1190" y="332"/>
+        </view>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3U5-YZ-DlY">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please log in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb4-p1-p8W">
+                    <rect key="frame" x="30" y="261" width="200" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDB-sC-W9s">
+                    <rect key="frame" x="30" y="290" width="260" height="53"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Facebook Log In" backgroundImage="bt_login_fb.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginwithfacebookTapped:" destination="-1" eventType="touchUpInside" id="ngU-Gv-hw7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PV-kk-beN">
+                    <rect key="frame" x="30" y="350" width="260" height="53"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="E-mail Log In" backgroundImage="bt_login_mail.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginwithemailTapped:" destination="-1" eventType="touchUpInside" id="0xG-ee-Tsy"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bt_fill_username.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-kt-zlp">
+                    <rect key="frame" x="30" y="350" width="260" height="45"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bt_fill_password.png" translatesAutoresizingMaskIntoConstraints="NO" id="aWu-JB-a5O">
+                    <rect key="frame" x="30" y="395" width="260" height="45"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMz-dC-INs">
+                    <rect key="frame" x="40" y="350" width="240" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdM-kJ-XNW">
+                    <rect key="frame" x="40" y="395" width="240" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iye-QT-mSI">
+                    <rect key="frame" x="30" y="450" width="127" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Log In" backgroundImage="bt_login.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lga-Ws-Sle">
+                    <rect key="frame" x="163" y="450" width="127" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Sign Up" backgroundImage="bt_signup.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_login_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZZW-04-bNc">
+                    <rect key="frame" x="108" y="110" width="105" height="118"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hX-Gr-Idm">
+                    <rect key="frame" x="230" y="40" width="70" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Skip" backgroundImage="bt_skip.png">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="skipTapped:" destination="-1" eventType="touchUpInside" id="Wxy-X3-4Wm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="336" y="956"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bt_done.png" width="70" height="30"/>
+        <image name="bt_fill_password.png" width="240" height="45"/>
+        <image name="bt_fill_username.png" width="240" height="45"/>
+        <image name="bt_login.png" width="127" height="50"/>
+        <image name="bt_login_fb.png" width="260" height="53"/>
+        <image name="bt_login_mail.png" width="260" height="53"/>
+        <image name="bt_signup.png" width="127" height="50"/>
+        <image name="bt_skip.png" width="70" height="30"/>
+        <image name="intro_01_01.png" width="320" height="284"/>
+        <image name="intro_01_02.png" width="320" height="284"/>
+        <image name="intro_01_03.png" width="320" height="284"/>
+        <image name="intro_02_01.png" width="320" height="284"/>
+        <image name="intro_02_02.png" width="320" height="284"/>
+        <image name="intro_02_03.png" width="320" height="284"/>
+        <image name="intro_02_04.png" width="320" height="284"/>
+        <image name="intro_03_01.png" width="320" height="284"/>
+        <image name="intro_03_02.png" width="320" height="284"/>
+        <image name="intro_03_03.png" width="320" height="284"/>
+        <image name="intro_04_01.png" width="320" height="284"/>
+        <image name="intro_04_02.png" width="320" height="284"/>
+        <image name="logo_login_01.png" width="105" height="118"/>
+    </resources>
+</document>

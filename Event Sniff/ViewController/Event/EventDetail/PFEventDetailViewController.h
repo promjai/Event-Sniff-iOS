@@ -7,12 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PagedImageScrollView.h"
+
+#import "PFApi.h"
 
 #import "PFCommentEventCell.h"
 
 @interface PFEventDetailViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
+@property (strong, nonatomic) NSMutableArray *arrObj;
+@property (strong, nonatomic) NSDictionary *obj;
+
+@property NSString *event_id;
+
+@property (strong, nonatomic) IBOutlet PagedImageScrollView *pageScrollView;
+
+@property (strong, nonatomic) IBOutlet UIView *imgscrollview;
+@property (strong, nonatomic) NSMutableArray *ArrImgs;
+@property (retain, nonatomic) NSMutableArray *arrcontactimg;
+@property (strong, nonatomic) NSString *current;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headerView;

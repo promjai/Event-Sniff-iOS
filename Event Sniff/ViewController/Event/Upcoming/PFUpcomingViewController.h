@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import "DLImageLoader.h"
 
+#import "PFApi.h"
+
 #import "PFUpcomingCell.h"
 
 #import "PFAllEventViewController.h"
@@ -18,6 +20,11 @@
 @interface PFUpcomingViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
+@property (strong, nonatomic) NSMutableArray *arrObj;
+@property (strong, nonatomic) NSDictionary *obj;
+
+@property NSString *category_id;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *footerView;

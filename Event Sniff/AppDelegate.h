@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
+#import "PFApi.h"
+
+#import "PFEventViewController.h"
+#import "PFSniffViewController.h"
+#import "PFProfileViewController.h"
+
+@interface AppDelegate : UIResponder <UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) PFApi *Api;
+
+@property (strong, nonatomic) PFEventViewController *event;
+@property (strong, nonatomic) PFSniffViewController *sniff;
+@property (strong, nonatomic) PFProfileViewController *profile;
 
 @end
 
