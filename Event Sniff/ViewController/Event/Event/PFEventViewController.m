@@ -366,15 +366,13 @@ BOOL refreshDataEvent;
     
 }
 
-/* Account Back */
+/* Setting Back */
 
 - (void)PFSettingViewControllerBack {
     
-    [self.delegate tabbar];
-    
     if ([[self.Api getReset] isEqualToString:@"YES"]) {
 
-        
+        [self.delegate tabbar];
         
     }
     

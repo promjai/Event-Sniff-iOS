@@ -204,6 +204,21 @@
 
 }
 
+- (void)userLocation:(NSString *)country_id city:(NSString *)city_id {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@user/location/%@",API_URL,[self getUserId]];
+    NSDictionary *parameters = @{@"country":country_id , @"city":city_id};
+    self.manager = [AFHTTPRequestOperationManager manager];
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [self.manager.requestSerializer setValue:nil forHTTPHeaderField:@"X-Auth-Token"];
+    [self.manager PUT:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self userLocationResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self userLocationErrorResponse:[error localizedDescription]];
+    }];
+
+}
+
 #pragma mark - Event
 - (void)getEvent:(NSString *)event_id {
     

@@ -33,6 +33,9 @@
 - (void)PFApi:(id)sender getCityResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getCityErrorResponse:(NSString *)errorResponse;
 
+- (void)PFApi:(id)sender userLocationResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender userLocationErrorResponse:(NSString *)errorResponse;
+
 #pragma mark - Event
 - (void)PFApi:(id)sender getEventResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getEventErrorResponse:(NSString *)errorResponse;
@@ -104,6 +107,8 @@
 #pragma mark - Location
 - (void)getLocation;
 - (void)getCity:(NSString *)country_id;
+
+- (void)userLocation:(NSString *)country_id city:(NSString *)city_id;
 
 #pragma mark - Event
 - (void)getEvent:(NSString *)event_id;

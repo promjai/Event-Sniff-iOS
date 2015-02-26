@@ -33,6 +33,9 @@
     self.Api = [[PFApi alloc] init];
     self.Api.delegate = self;
     
+    /* Label */
+    [self setLabel];
+    
     /* Button */
     [self setButton];
     
@@ -87,6 +90,10 @@
             
                 [self.Api registerNoneuser];
                 
+            } else {
+            
+                [self.Api userLocation:self.Country_id city:self.State_id];
+            
             }
             
         }
@@ -102,16 +109,64 @@
 /* Register Noneuser API */
 
 - (void)PFApi:(id)sender registerNoneuserResponse:(NSDictionary *)response {
-    NSLog(@"%@",response);
+    NSLog(@"registerNoneuser %@",response);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[response objectForKey:@"type"] forKey:@"type"];
+    [defaults setObject:[response objectForKey:@"access_token"] forKey:@"access_token"];
+    [defaults setObject:[response objectForKey:@"user_id"] forKey:@"user_id"];
+    [defaults synchronize];
+    [self.Api userLocation:self.Country_id city:self.State_id];
+    
 }
 
 - (void)PFApi:(id)sender registerNoneuserErrorResponse:(NSString *)errorResponse {
     NSLog(@"%@",errorResponse);
 }
 
+/* User Location API */
+
+- (void)PFApi:(id)sender userLocationResponse:(NSDictionary *)response {
+    NSLog(@"userLocation %@",response);
+}
+
+- (void)PFApi:(id)sender userLocationErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
+
+/* Label */
+
+- (void)setLabel {
+    
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        
+        self.whereLabel.text = @"Where are you?";
+        self.startLabel.text = @"Start Event Sniff";
+        self.serviceLabel.text = @"by allow location service.";
+        
+    } else {
+        
+        self.whereLabel.text = @"คุณอยู่ที่ไหน?";
+        self.startLabel.text = @"เริ่มต้นใช้งาน Event Sniff";
+        self.serviceLabel.text = @"โดยเปิดใช้งาน บริการค้นหาตำแหน่งที่ตั้ง";
+        
+    }
+    
+}
+
 /* Button */
 
 - (void)setButton {
+    
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+    
+        [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
+        
+    } else {
+        
+        [self.nextButton setTitle:@"ถัดไป" forState:UIControlStateNormal];
+        
+    }
     
     [self.nextButton.layer setMasksToBounds:YES];
     [self.nextButton.layer setCornerRadius:5.0f];
@@ -137,12 +192,26 @@
          ];
         
         if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                               message:@"Event Sniff Would Like to Use Your Current Location"
-                                              delegate:self
-                                     cancelButtonTitle:@"Not Now"
-                                     otherButtonTitles:@"Allow",nil];
-            [alert show];
+            
+            if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                                message:@"Event Sniff Would Like to Use Your Current Location"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Not Now"
+                                                      otherButtonTitles:@"Allow",nil];
+                [alert show];
+                
+            } else {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                                message:@"Event Sniff Would Like to Use Your Current Location"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"ไม่ยินยอม"
+                                                      otherButtonTitles:@"ยินยอม",nil];
+                [alert show];
+            
+            }
             
         }
         
@@ -155,6 +224,7 @@
     if (buttonIndex == 0) {
         
         NSLog(@"Not Now");
+        [self dismissModalViewControllerAnimated:YES];
         
     } else if (buttonIndex == 1) {
         

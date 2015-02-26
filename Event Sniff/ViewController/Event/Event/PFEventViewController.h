@@ -28,10 +28,12 @@
 
 @interface PFEventViewController : UIViewController <UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource> {
     IBOutlet UIScrollView	*_scrollView;
+
 }
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
+
 @property (strong, nonatomic) NSMutableArray *arrObjNow;
 @property (strong, nonatomic) NSDictionary *objNow;
 

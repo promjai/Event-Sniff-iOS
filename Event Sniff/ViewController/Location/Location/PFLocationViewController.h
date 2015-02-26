@@ -24,6 +24,10 @@
 
 @property NSUserDefaults *userOffline;
 
+@property (strong, nonatomic) IBOutlet UILabel *whereLabel;
+@property (strong, nonatomic) IBOutlet UILabel *startLabel;
+@property (strong, nonatomic) IBOutlet UILabel *serviceLabel;
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
 

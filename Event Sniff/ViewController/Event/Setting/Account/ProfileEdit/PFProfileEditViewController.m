@@ -58,14 +58,15 @@
     
     if (![[self.Api getLanguage] isEqualToString:@"th"]) {
         self.navItem.title = @"Edit Profile";
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+        self.navItem.leftBarButtonItem = anotherButton;
     } else {
         self.navItem.title = @"แก้ไขข้อมูลส่วนตัว";
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"ปิด" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+        self.navItem.leftBarButtonItem = anotherButton;
     }
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
-    self.navItem.leftBarButtonItem = anotherButton;
     
     [self.view addSubview:self.navController.view];
     

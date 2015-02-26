@@ -13,8 +13,6 @@
 		810AAA771A60DC2A00CF3E81 /* TLYShyNavBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AAA711A60DC2A00CF3E81 /* TLYShyNavBarManager.m */; };
 		810AAA781A60DC2A00CF3E81 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AAA731A60DC2A00CF3E81 /* TLYShyViewController.m */; };
 		810AAA7A1A60DCB600CF3E81 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810AAA791A60DCB600CF3E81 /* CoreGraphics.framework */; };
-		8124B3FE1A9838C400100C88 /* PFLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124B3FC1A9838C400100C88 /* PFLocationViewController.m */; };
-		8124B3FF1A9838C400100C88 /* PFLocationViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8124B3FD1A9838C400100C88 /* PFLocationViewController_Wide.xib */; };
 		8124B4031A98399D00100C88 /* logo_where_are_you@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8124B4011A98399D00100C88 /* logo_where_are_you@2x.png */; };
 		8124B4041A98399D00100C88 /* logo_where_are_you@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8124B4021A98399D00100C88 /* logo_where_are_you@3x.png */; };
 		8124B4071A983A6C00100C88 /* ic_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8124B4051A983A6C00100C88 /* ic_location@2x.png */; };
@@ -171,7 +169,6 @@
 		81B7EBD51A8B518C00350183 /* ic_tab_profile_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7EBCF1A8B518C00350183 /* ic_tab_profile_on@3x.png */; };
 		81B7EBD61A8B518C00350183 /* ic_tab_sniff_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7EBD01A8B518C00350183 /* ic_tab_sniff_off@3x.png */; };
 		81B7EBD71A8B518C00350183 /* ic_tab_sniff_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7EBD11A8B518C00350183 /* ic_tab_sniff_on@3x.png */; };
-		81B933271A9AD17200010869 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B933261A9AD17200010869 /* FacebookSDK.framework */; };
 		81B9332A1A9AD2CD00010869 /* bt_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B933281A9AD2CD00010869 /* bt_back@2x.png */; };
 		81B9332B1A9AD2CD00010869 /* bt_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B933291A9AD2CD00010869 /* bt_back@3x.png */; };
 		81D0756C1A89C25500C5C4A3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D0756B1A89C25500C5C4A3 /* FacebookSDK.framework */; };
@@ -216,6 +213,9 @@
 		81E2CC6E1A71F7B900C43C99 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E2CC5D1A71F7B900C43C99 /* SDWebImageManager.m */; };
 		81E2CC6F1A71F7B900C43C99 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E2CC5F1A71F7B900C43C99 /* SDWebImagePrefetcher.m */; };
 		81E489751A6A0C620067BE2B /* PFApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E489741A6A0C620067BE2B /* PFApi.m */; };
+		81F759DA1A9D771100EB8ABD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F759D91A9D771100EB8ABD /* FacebookSDK.framework */; };
+		81F759E11A9D812000EB8ABD /* PFLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F759DE1A9D812000EB8ABD /* PFLocationViewController.m */; };
+		81F759E21A9D812000EB8ABD /* PFLocationViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F759DF1A9D812000EB8ABD /* PFLocationViewController_Wide.xib */; };
 		81FC23E61A6E392D00209048 /* PFNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FC23E41A6E392D00209048 /* PFNowViewController.m */; };
 		81FC23E71A6E392D00209048 /* PFNowViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FC23E51A6E392D00209048 /* PFNowViewController_Wide.xib */; };
 		81FC23EB1A6E397800209048 /* PFUpcomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FC23E91A6E397800209048 /* PFUpcomingViewController.m */; };
@@ -247,9 +247,6 @@
 		810AAA731A60DC2A00CF3E81 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
 		810AAA791A60DCB600CF3E81 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		81241A241A5F9A6900D0C774 /* Event Sniff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Event Sniff-Prefix.pch"; sourceTree = "<group>"; };
-		8124B3FB1A9838C400100C88 /* PFLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLocationViewController.h; sourceTree = "<group>"; };
-		8124B3FC1A9838C400100C88 /* PFLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFLocationViewController.m; sourceTree = "<group>"; };
-		8124B3FD1A9838C400100C88 /* PFLocationViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFLocationViewController_Wide.xib; sourceTree = "<group>"; };
 		8124B4011A98399D00100C88 /* logo_where_are_you@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_where_are_you@2x.png"; sourceTree = "<group>"; };
 		8124B4021A98399D00100C88 /* logo_where_are_you@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_where_are_you@3x.png"; sourceTree = "<group>"; };
 		8124B4051A983A6C00100C88 /* ic_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_location@2x.png"; sourceTree = "<group>"; };
@@ -429,7 +426,6 @@
 		81B7EBCF1A8B518C00350183 /* ic_tab_profile_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_profile_on@3x.png"; sourceTree = "<group>"; };
 		81B7EBD01A8B518C00350183 /* ic_tab_sniff_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_sniff_off@3x.png"; sourceTree = "<group>"; };
 		81B7EBD11A8B518C00350183 /* ic_tab_sniff_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_sniff_on@3x.png"; sourceTree = "<group>"; };
-		81B933261A9AD17200010869 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Library/FacebookSDK.framework; sourceTree = "<group>"; };
 		81B933281A9AD2CD00010869 /* bt_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_back@2x.png"; sourceTree = "<group>"; };
 		81B933291A9AD2CD00010869 /* bt_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_back@3x.png"; sourceTree = "<group>"; };
 		81D0756B1A89C25500C5C4A3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -514,6 +510,10 @@
 		81E2CC5F1A71F7B900C43C99 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		81E489731A6A0C620067BE2B /* PFApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFApi.h; sourceTree = "<group>"; };
 		81E489741A6A0C620067BE2B /* PFApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFApi.m; sourceTree = "<group>"; };
+		81F759D91A9D771100EB8ABD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Library/FacebookSDK.framework; sourceTree = "<group>"; };
+		81F759DD1A9D812000EB8ABD /* PFLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLocationViewController.h; sourceTree = "<group>"; };
+		81F759DE1A9D812000EB8ABD /* PFLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFLocationViewController.m; sourceTree = "<group>"; };
+		81F759DF1A9D812000EB8ABD /* PFLocationViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFLocationViewController_Wide.xib; sourceTree = "<group>"; };
 		81FC23E31A6E392D00209048 /* PFNowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNowViewController.h; sourceTree = "<group>"; };
 		81FC23E41A6E392D00209048 /* PFNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFNowViewController.m; sourceTree = "<group>"; };
 		81FC23E51A6E392D00209048 /* PFNowViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFNowViewController_Wide.xib; sourceTree = "<group>"; };
@@ -538,7 +538,7 @@
 				81B7EB4C1A8AFDF800350183 /* CFNetwork.framework in Frameworks */,
 				81B7EB4A1A8AFDE700350183 /* AssetsLibrary.framework in Frameworks */,
 				81B7EB481A8AFDBF00350183 /* MobileCoreServices.framework in Frameworks */,
-				81B933271A9AD17200010869 /* FacebookSDK.framework in Frameworks */,
+				81F759DA1A9D771100EB8ABD /* FacebookSDK.framework in Frameworks */,
 				81D0756C1A89C25500C5C4A3 /* FacebookSDK.framework in Frameworks */,
 				810AAA7A1A60DCB600CF3E81 /* CoreGraphics.framework in Frameworks */,
 				81DEC0461A5CFCE800B5C1FB /* UIKit.framework in Frameworks */,
@@ -584,10 +584,10 @@
 		8124B3FA1A9838B200100C88 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				81F759DC1A9D812000EB8ABD /* Location */,
+				81F759DB1A9D812000EB8ABD /* Country */,
+				81F759E01A9D812000EB8ABD /* Town */,
 				8124B4001A98399D00100C88 /* Images */,
-				8124B3FB1A9838C400100C88 /* PFLocationViewController.h */,
-				8124B3FC1A9838C400100C88 /* PFLocationViewController.m */,
-				8124B3FD1A9838C400100C88 /* PFLocationViewController_Wide.xib */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -1163,7 +1163,7 @@
 		81DEC0421A5CFCD300B5C1FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81B933261A9AD17200010869 /* FacebookSDK.framework */,
+				81F759D91A9D771100EB8ABD /* FacebookSDK.framework */,
 				81B7EB491A8AFDE700350183 /* AssetsLibrary.framework */,
 				81B7EB4B1A8AFDF800350183 /* CFNetwork.framework */,
 				810AAA791A60DCB600CF3E81 /* CoreGraphics.framework */,
@@ -1259,6 +1259,30 @@
 				81E489741A6A0C620067BE2B /* PFApi.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		81F759DB1A9D812000EB8ABD /* Country */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Country;
+			sourceTree = "<group>";
+		};
+		81F759DC1A9D812000EB8ABD /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				81F759DD1A9D812000EB8ABD /* PFLocationViewController.h */,
+				81F759DE1A9D812000EB8ABD /* PFLocationViewController.m */,
+				81F759DF1A9D812000EB8ABD /* PFLocationViewController_Wide.xib */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		81F759E01A9D812000EB8ABD /* Town */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Town;
 			sourceTree = "<group>";
 		};
 		81FC23E11A6E387300209048 /* Upcoming */ = {
@@ -1376,6 +1400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8124B40C1A983CB600100C88 /* bt_next@3x.png in Resources */,
+				81F759E21A9D812000EB8ABD /* PFLocationViewController_Wide.xib in Resources */,
 				819B49881A8CA69F00187D40 /* bt_fill_password@2x.png in Resources */,
 				81B7EB891A8B175E00350183 /* ic_gender@2x.png in Resources */,
 				81FC23F71A6E4DEB00209048 /* PFNowCell.xib in Resources */,
@@ -1383,7 +1408,6 @@
 				812968F21A8C63C200950AA5 /* ic_correct@2x.png in Resources */,
 				81B7EBA51A8B474500350183 /* PFProfileEditViewController_Wide.xib in Resources */,
 				819B498D1A8CA69F00187D40 /* bt_login_fb@3x.png in Resources */,
-				8124B3FF1A9838C400100C88 /* PFLocationViewController_Wide.xib in Resources */,
 				819B49C91A8CA6B500187D40 /* intro_02_03@3x.png in Resources */,
 				814E37E51A78A0DD00B98456 /* PFAllEventViewController_Wide.xib in Resources */,
 				81974CB81A7751FA00226635 /* sgaw.jpg in Resources */,
@@ -1566,7 +1590,7 @@
 				81E2CC631A71F7B900C43C99 /* UIButton+WebCache.m in Sources */,
 				81B7EBA41A8B474500350183 /* PFProfileEditViewController.m in Sources */,
 				81974CBE1A77527C00226635 /* ARScrollViewEnhancer.m in Sources */,
-				8124B3FE1A9838C400100C88 /* PFLocationViewController.m in Sources */,
+				81F759E11A9D812000EB8ABD /* PFLocationViewController.m in Sources */,
 				8125BB8A1A5B9B62000A75F3 /* main.m in Sources */,
 				81E2CC661A71F7B900C43C99 /* UIImage+WebP.m in Sources */,
 				81E2CC651A71F7B900C43C99 /* UIImage+MultiFormat.m in Sources */,
@@ -1730,6 +1754,10 @@
 					Sniff/Library,
 					"$(PROJECT_DIR)/Event",
 					Sniff/Library,
+					"$(PROJECT_DIR)/Event",
+					Sniff/Library,
+					"$(PROJECT_DIR)/Event",
+					Sniff/Library,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Event Sniff/Event Sniff-Prefix.pch";
@@ -1750,6 +1778,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Phee Puthaprasert (Q8MZLL79Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Event",
+					Sniff/Library,
+					"$(PROJECT_DIR)/Event",
+					Sniff/Library,
 					"$(PROJECT_DIR)/Event",
 					Sniff/Library,
 					"$(PROJECT_DIR)/Event",

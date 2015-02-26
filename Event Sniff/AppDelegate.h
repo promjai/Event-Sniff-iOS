@@ -17,6 +17,7 @@
 @interface AppDelegate : UIResponder <UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property (strong, nonatomic) PFApi *Api;
 
 @property (strong, nonatomic) PFEventViewController *event;

@@ -215,15 +215,16 @@ NSString *removeBreckets;
 
 - (IBAction)skipTapped:(id)sender {
     
-    [self.Api saveStatusIntro:@"close"];
-    
+    [self.Api saveStatusIntro:@"close"];    
     PFLocationViewController *locationView = [[PFLocationViewController alloc] init];
     if(IS_WIDESCREEN) {
         locationView = [[PFLocationViewController alloc] initWithNibName:@"PFLocationViewController_Wide" bundle:nil];
     } else {
         locationView = [[PFLocationViewController alloc] initWithNibName:@"PFLocationViewController" bundle:nil];
     }
+    //locationView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentModalViewController:locationView animated:YES];
+    //[self presentModalViewController:locationView animated:YES];
     
 }
 

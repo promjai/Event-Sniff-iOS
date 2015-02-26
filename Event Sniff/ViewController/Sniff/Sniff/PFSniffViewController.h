@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PFApi.h"
+
 #import "PFMapView.h"
 #import "CMMapLauncher.h"
 
 @interface PFSniffViewController : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
+
 @property (strong, nonatomic) IBOutlet PFMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;

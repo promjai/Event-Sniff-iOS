@@ -14,19 +14,29 @@
 
 @implementation PFProfileViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f]];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    /* API */
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
     
     /* NavigationBar */
     [self setNavigationBar];
     
     /* Library code */
     self.shyNavBarManager.scrollView = self.tableView;
-    
-    /* API */
-    self.Api = [[PFApi alloc] init];
-    self.Api.delegate = self;
     
     /*
     if ([self.Api checkLogin] == 0){
@@ -54,7 +64,16 @@
 
 - (void)setNavigationBar {
     
-    self.navigationItem.title = @"Profile";
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        
+        self.navigationItem.title = @"Profile";
+        
+    } else {
+        
+        self.navigationItem.title = @"โปรไฟล์";
+        
+    }
+    
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add_event)];
     
 }

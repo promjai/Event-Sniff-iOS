@@ -14,6 +14,16 @@
 
 @implementation PFSniffViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f]];
+    }
+    return self;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)_mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     static NSString *AnnotationViewID = @"PFSniffViewController";
@@ -49,7 +59,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"Sniff";
+    /* API */
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    /* NavigationBar */
+    [self setNavigationBar];
     
     [self startMap];
     
@@ -62,6 +77,23 @@
 
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
+}
+
+
+/* Set NavigationBar */
+
+- (void)setNavigationBar {
+    
+    if (![[self.Api getLanguage] isEqualToString:@"th"]) {
+        
+        self.navigationItem.title = @"Sniff";
+        
+    } else {
+        
+        self.navigationItem.title = @"โดยรอบ";
+        
+    }
+    
 }
 
 - (void)startMap {

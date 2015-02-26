@@ -45,9 +45,6 @@
     
     self.objAccount = [[NSDictionary alloc] init];
     
-    self.tableView.tableHeaderView = self.headerView;
-    self.tableView.tableFooterView = self.footerView;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,6 +131,8 @@
 /* me API */
 
 - (void)PFApi:(id)sender meResponse:(NSDictionary *)response {
+    NSLog(@"profile %@",response);
+    
     self.objAccount = response;
     
     [self.waitView removeFromSuperview];
@@ -155,6 +154,14 @@
                               self.thumUser.image = [UIImage imageWithData:imgData];
                           }];
     
+    //detail
+    UIView *bgDetail = [[UIView alloc] initWithFrame:CGRectMake(0, 174, 320, 50)];
+    bgDetail.backgroundColor = [UIColor whiteColor];
+    [self.headerView addSubview:bgDetail];
+    
+    self.headerView.frame = CGRectMake(self.headerView.frame.origin.x, self.headerView.frame.origin.y, self.headerView.frame.size.width, self.headerView.frame.size.height + 60);
+    //
+    
     self.facebook.text = [response objectForKey:@"fb_name"];
     self.email.text = [response objectForKey:@"email"];
     self.website.text = [response objectForKey:@"website"];
@@ -165,6 +172,9 @@
     NSString *mySmallerString = [myString substringToIndex:10];
     
     self.birthday.text = mySmallerString;
+    
+    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.tableFooterView = self.footerView;
     
     //[self.RatreeSamosornApi getUserSetting];
     
@@ -200,6 +210,9 @@
     NSString *mySmallerString = [myString substringToIndex:10];
     
     self.birthday.text = mySmallerString;
+    
+    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.tableFooterView = self.footerView;
     
     //[self.RatreeSamosornApi getUserSetting];
 }

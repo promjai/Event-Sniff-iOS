@@ -14,6 +14,7 @@
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

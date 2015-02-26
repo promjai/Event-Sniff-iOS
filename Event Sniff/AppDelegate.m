@@ -8,12 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -26,9 +21,16 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    
     [self tabbar];
     
     return YES;
+}
+
+- (void)resetApp {
+    NSLog(@"tabbar reset");
 }
 
 - (void)tabbar {
@@ -41,16 +43,9 @@
     
     [self.Api saveReset:@"NO"];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
     self.event = [[PFEventViewController alloc] init];
     self.sniff = [[PFSniffViewController alloc] init];
     self.profile = [[PFProfileViewController alloc] init];
-    
-    self.event.delegate = self;
-    self.sniff.delegate = self;
-    self.profile.delegate = self;
 
     UITabBarController *tbc = [[UITabBarController alloc] init];
     tbc.delegate = self;
@@ -117,6 +112,10 @@
     [self.profile.tabBarItem setSelectedImage:[UIImage imageNamed:@"ic_tab_profile_on"]];
     
     /* tabbar controller */
+    
+    self.event.delegate = self;
+    self.sniff.delegate = self;
+    self.profile.delegate = self;
     
     [tbc.tabBar setTintColor:[UIColor colorWithRed:255.0f/255.0f green:73.0f/255.0f blue:129.0f/255.0f alpha:1.0f]];
     [tbc setViewControllers:[NSArray arrayWithObjects:navFeed ,navSniff ,navProfile ,nil]];
